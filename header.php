@@ -68,39 +68,33 @@
 
 			<!-- /.slider -->
 			<div class="slider">
+			<?
+			 $posts = get_posts( array(
+                'numberposts' => 5,
+                'orderby'     => 'date',
+                'order'       => 'DESC',
+                'include'     => array(),
+                'exclude'     => array(),
+                'meta_key'    => 'post_with_slider',
+                'meta_value'  => '',
+                'post_type'   => 'post',
+                'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+            ) );
+
+		 	foreach( $posts as $post ){
+				setup_postdata($post); ?>
 				<div class="slider__item">
-					<img src="img/slider/slider.jpg" alt="">
+					<img src="<? the_post_thumbnail(); ?>" alt="">
 					<div class="slider__text">
-						<div class="slider-item__text"><p>Ишчи гурух томонидан ёкилги куйиш шохобчалари мутусаддилари ...</p></div>
-						<div class="slider-item__btn"><a href="#">Подробнее</a></div>
+						<div class="slider-item__text"><p><? the_title(); ?></p></div>
+						<div class="slider-item__btn"><a href="<? the_permalink(); ?>">Подробнее</a></div>
 					</div>
 				</div>
-				<div class="slider__item">
-					<img src="img/slider/slider.jpg" alt="">
-					<div class="slider__text">
-						<div class="slider-item__text"><p>Ишчи гурух томонидан ёкилги куйиш шохобчалари мутусаддилари ...</p></div>
-						<div class="slider-item__btn"><a href="#">Подробнее</a></div>
-					</div>
-				</div>
-				<div class="slider__item">
-					<img src="img/slider/slider.jpg" alt="">
-					<div class="slider__text">
-						<div class="slider-item__text"><p>Ишчи гурух томонидан ёкилги куйиш шохобчалари мутусаддилари ...</p></div>
-						<div class="slider-item__btn"><a href="#">Подробнее</a></div>
-					</div>
-				</div>
-				<div class="slider__item">
-					<img src="img/slider/slider.jpg" alt="">
-					<div class="slider__text">
-						<div class="slider-item__text"><p>Ишчи гурух томонидан ёкилги куйиш шохобчалари мутусаддилари ...</p></div>
-						<div class="slider-item__btn"><a href="#">Подробнее</a></div>
-					</div>
-				</div>
-				<div class="slider__item">
-					<img src="img/slider/slider.jpg" alt="">
-					<div class="slider__text">
-						<div class="slider-item__text"><p>Ишчи гурух томонидан ёкилги куйиш шохобчалари мутусаддилари ...</p></div>
-						<div class="slider-item__btn"><a href="#">Подробнее</a></div>
-					</div>
-				</div>
+			<? 
+			} 
+			wp_reset_postdata();
+		?>
 			</div>
+			
+			 
+
