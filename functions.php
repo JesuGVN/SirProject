@@ -9,6 +9,16 @@ add_action('after_setup_theme', 'theme_register_nav_menu'); //Регистрир
 add_theme_support( 'post-thumbnails' ); // Позволяем использовать миниатюры в постах
 
 
+
+
+/*   ---- ПЕРЕВОДЫ СТРОК ------- */
+
+pll_register_string( 'кнопка подробнее', 'Подробнее');
+
+////////////////////////////////////
+
+
+
 function style_theme(){
     wp_enqueue_style('style', get_stylesheet_uri());
     wp_enqueue_style( 'default', get_template_directory_uri() . '/assets/css/styles.css' );
@@ -26,7 +36,10 @@ function scripts_theme(){
 }
 
 function theme_register_nav_menu(){
-    register_nav_menu('top', 'Меню в шапке');
+	    register_nav_menus( array(
+			'head_menu' => 'Меню в шапке',
+			'lang_menu' => 'Меню Языков'
+	    ));
 }
 
  
@@ -130,10 +143,35 @@ function register_post_type_() {
 		'taxonomies' => array('post_tag')
 	);
 
+	$usefullLinks = array(
+		'name' => 'Полезные Ссылуи',
+		'singular_name' => 'Полезную Ссылку', // админ панель Добавить->Функцию
+		'add_new' => 'Добавить Полезную Ссылку',
+		'add_new_item' => 'Добавить новую полезную ссылку', // заголовок тега <title>
+		'edit_item' => 'Редактировать полезную ссылку',
+		'new_item' => 'Новая полезная ссылка',
+		'all_items' => 'Все полезные ссылки',
+		'view_item' => 'Просмотр полезных ссылок на сайте',
+		'search_items' => 'Искать полезные ссылки',
+		'not_found' =>  'Полезных Ссылок не найдено.',
+		'not_found_in_trash' => 'В корзине нет полезных ссылок.',
+		'menu_name' => 'Полезные Ссылки' // ссылка в меню в админке
+	);
+	$usefullLinks_args = array(
+		'labels' => $usefullLinks,
+		'public' => true, // благодаря этому некоторые параметры можно пропустить
+		'menu_icon' => 'dashicons-admin-page', // иконка корзины
+		'menu_position' => 5,
+		'has_archive' => true,
+		'supports' => array( 'title', 'thumbnail'),
+		'taxonomies' => array('post_tag')
+	);
+
 	register_post_type('partners',$partners_args);
 	register_post_type('cities',$cities_args);
 	register_post_type('events',$events_args);
 	register_post_type('goverment',$gov_args);
+	register_post_type('userfull_links',$usefullLinks_args);
 
 
 }

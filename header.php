@@ -28,11 +28,18 @@
 								<div class="contac__tel"><a href="tel:+998915080258">+998 (91) 508 - 02 - 58</a></div>
 								<div class="additional">Дополнительные Возможности</div>
 							</div>
-							<div class="languages">
+							<!-- <div class="languages">
 								<p><a href="#">Uz</a></p>
 								<p><a href="#">Rus</a></p>
 								<p><a href="#">Eng</a></p>
-							</div>
+							</div> -->
+
+							<?php wp_nav_menu(array(
+                                'theme_location' => 'lang_menu',
+                                'container'      => 'div',
+                                'menu_class'     => 'languages',
+                                'menu_id'        => 'nav'
+                                )); ?>
 						</div>
 					</div>
 				</div>
@@ -43,7 +50,7 @@
 							<div class="header__logo">
 								<a href="#"><img src="img/icons/test_logo.png" alt=""></a>
 							</div>
-							<div class="header__burger"><span></span></div>
+							<div class="header__burger"><span></span></div>		
 							<nav class="header__menu">
 								<!-- <ul class="header__list">
 									<li><a href="#">Матбуот хизмати</a></li>
@@ -55,8 +62,8 @@
 									<li><a href="#">Инвестицион салохият</a></li>
 								</ul> -->
                                 <?php wp_nav_menu(array(
-                                'theme_location' => 'top',
-                                'container'      => null,
+                                'theme_location' => 'head_menu',
+                                'container'      => 'ul',
                                 'menu_class'     => 'header__list',
                                 'menu_id'        => 'nav'
                                 )); ?>
@@ -87,7 +94,7 @@
 					<img src="<? the_post_thumbnail(); ?>" alt="">
 					<div class="slider__text">
 						<div class="slider-item__text"><p><? the_title(); ?></p></div>
-						<div class="slider-item__btn"><a href="<? the_permalink(); ?>">Подробнее</a></div>
+						<div class="slider-item__btn"><a href="<? the_permalink(); ?>"><? pll_e('Подробнее'); ?></a></div>
 					</div>
 				</div>
 			<? 

@@ -21,10 +21,10 @@
 							setup_postdata($post); 
 									?>
 							<div class="image__column">
-								<!-- <img src="http://sirdaryo.uz/wp-content/uploads/2020/02/6fbe347ee16824f6e0ddd.jpg" alt=""> -->
-								<? the_post_thumbnail(); ?>
+								<img src="<? the_post_thumbnail_url(); ?>" alt="">
+
 								<div class="image__content">
-									<a href="#" class="news__link">
+									<a href="<? the_permalink(); ?>" class="news__link">
 										<span class="news-link__content">
 											<span class="news__text"><? the_title(); ?></span>
 											<span class="news__btn"><? echo get_the_date('j-F-Y'); ?></span>
@@ -40,118 +40,33 @@
 
 						</div>
 						<div class="news__list">
+						<? 
+
+						 $posts = get_posts( array(
+			                'numberposts' => 30,
+			                'orderby'     => 'date',
+			                'order'       => 'DESC',
+			                'include'     => array(),
+			                'exclude'     => array(),
+			                'meta_key'    => '',
+			                'meta_value'  => '',
+			                'post_type'   => 'post',
+			                'offset'      => 13,
+			                'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+			            ) );
+
+					 	foreach( $posts as $post ){
+							setup_postdata($post); 
+									?>							
 							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
+								<div class="list-content__data"><? echo get_the_date('d.m.Y'); ?></div>
+								<div class="list-content__text"><p><? the_title(); ?></p></div>
 							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
-							<div class="list__content">
-								<div class="list-content__data">17.02.2020</div>
-								<div class="list-content__text"><p>Халк депутатлари Боёвут тумани Кенгашининг навбатдан ташкари сессияси якунланди.</p></div>
-							</div>
+							<?
+							}
+							wp_reset_postdata();
+							?>
+							
 						</div>
 					</div>
 				</div>
